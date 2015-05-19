@@ -1,25 +1,56 @@
+#Steps to get the app running
 
-Dependencies : 
+1. Install mysql
 
-pip install virtualenv
-pip install MySQL-python
-sudo apt-get install build-essential python-dev libmysqlclient-dev 
-sudo apt-get install python-mysqldb
-	
-App start procedure (1st time)
+```$sudo apt-get install mysql-server-5.6```
 
-virtualenv <environment_name>
+2. Create database in mysql
 
-cd <environment_name>
-. bin/activate
+```$create database mwproject;```
 
-pip install Django
+In mySQL, change password of root user
 
-django-admin.py startproject <project_name>
 
-cd <project_name>
+3. Install pythons package management system
 
-python manage.py startapp <app_name>
+```$sudo apt-get install python-pip```
 
-# mendeleyRepo
-Mendeley API
+4. Install dependencies
+
+```sudo apt-get install build-essential python-dev libmysqlclient-dev```
+
+5. Install virtual environment 
+
+```$sudo pip install virtualenv```
+
+```$virtualenv mendeleyenv```
+
+```$cd mendeleyenv```
+
+
+6. Clone the git repository
+
+```$git clone https://github.com/sjain-umd/mendeleyRepo.git```
+```$cd mendeleyRepo```
+
+7. Install dependencies in virtual environment from requirements.txt
+```$pip install -r requirements.txt```
+
+8. Add settings.py in folder parallel with urls.py (mendeleyapp/settings.py)
+
+9. Update database credentials in settings.py
+
+10. Sync the database
+```$python manage.py syncdb```
+
+11. Run server
+```$python manage.py runserver 0.0.0.0:8000```
+
+Once the server is started, type the following url in browser.
+http://localhost:8000/logout/ (this is to force logout once)
+Next use the front end to enter id of WorldCat record.
+http://localhost:8000/static/client-base.html
+
+
+
+
