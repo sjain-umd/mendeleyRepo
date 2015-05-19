@@ -52,11 +52,11 @@ In mySQL, change password of root user
 
 Once the server is started, type the following url in browser.
 
-[http://localhost:8000/logout/] (this is to force logout once)
+[http://localhost:8000/logout/] this is to force logout once
 
 Next use the front end to enter id of WorldCat record.
 
-[http://localhost:8000/static/client-base.html]
+[http://localhost:8000/static/client-base.html/]
 
 
 
