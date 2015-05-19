@@ -38,6 +38,7 @@ def fetchDataFromWorldcat(request):
     tags = []
 
     keywords = []
+    link = []
     abstract_array = []
     publisher_array = []
     page_array =[]
@@ -112,7 +113,7 @@ def fetchDataFromWorldcat(request):
         return abstract
 
     abstract = abstract_extractor(abstract_array)
-    link = url_extracter(url_obj)
+    link.append(url_extracter(url_obj))
     year = publisher_array[2]
     city = publisher_array[1]
     publisher = publisher_array[0]
@@ -130,7 +131,7 @@ def fetchDataFromWorldcat(request):
     print "City:" + city
     print "Accessed:" + accessed
     print "Publisher:" + publisher
-    print "Url:" + link
+    print "Url:" + str(link)
 
     document = {
         'title' : title,

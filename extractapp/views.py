@@ -86,7 +86,8 @@ def createMendeleyDocument(request):
         abstract = document.get('abstract')
         tags = document.get('tags')
         keywords =  document.get('keywords')
-        print authors,keywords
+	websites = document.get('url')
+        print authors,keywords,websites
 
         newauthors = []
         for author in authors:
@@ -108,7 +109,7 @@ def createMendeleyDocument(request):
 
         print newtags
             
-        doc = mendeley_session.documents.create(title=title, type= 'Working_Paper', year = year, city = city, publisher = publisher, abstract = abstract, keywords = keywords, tags = newtags, authors = newauthors, pages = pages)
+        doc = mendeley_session.documents.create(title=title, type= 'Working_Paper', year = year, city = city, publisher = publisher, abstract = abstract, keywords = keywords, tags = newtags, authors = newauthors, pages = pages, websites = websites)
         print doc.id
         #response = {'error' : 'ductomc'}
         response = {'success' : {'documentId' : doc.id, 'title' : doc.title }}
